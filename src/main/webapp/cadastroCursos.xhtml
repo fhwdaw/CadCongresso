@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro Congresso</title>
+    </h:head>
+    <h:body>
+        
+        <h1>
+            <h:outputText value="Cadastro Congresso"/>
+        </h1>
+        <h:form id="UserEntryForm">
+            <h3>
+                <h:outputText value="Selecione os cursos que deseja participar::"/>
+            </h3>
+            <h:selectManyCheckbox value="#{cursosBean.cursos}" layout="pageDirection">
+                <f:selectItem id="curso1" itemLabel="Programação Java para WEB" itemValue="1"/>
+                <f:selectItem id="curso2" itemLabel="Linguagem Python" itemValue="2"/>
+                <f:selectItem id="curso3" itemLabel="Ruby on Rails" itemValue="3"/>
+                <f:selectItem id="curso4" itemLabel="HTML 5" itemValue="4"/>
+                <f:selectItem id="curso5" itemLabel="Webservices" itemValue="5"/>
+            </h:selectManyCheckbox>
+            <h:commandButton action="confirmaInscricao" value="Confirmar" />
+        </h:form>
+    </h:body>
+</html>
+

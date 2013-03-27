@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro Congresso</title>
+        <style>
+            body{
+                font: 18px arial black;
+            }
+            input{
+                font: 18px arial black;
+            }
+            #conteudo{
+                position: absolute;
+                padding: 5%;
+                padding-top: 1%;
+                top: 5%;
+                left: 10%;
+                width: 65%;
+                height: 90%;
+                border: 1px solid black;
+            }
+            
+            #javax_faces_developmentstage_messages, ul{
+                position: absolute;
+                left: 30%;
+                top: 20%;
+                border: 1px solid black;
+                border-radius: 20px;
+                background-color: white;
+                padding: 5%;
+                box-shadow: 10px 10px 5px #888888;
+            }
+        </style>
+        <script>
+            function teste(){
+                var caixaAlerta = document.getElementById("javax_faces_developmentstage_messages");
+                caixaAlerta.addEventListener("click", dois, false);
+            }
+            
+            function dois(elemento){
+                document.getElementById("javax_faces_developmentstage_messages").style.display = "none";
+            }
+            
+        </script>
+            
+    </h:head>
+    <h:body onload="teste()">
+        <h:form>
+        <table id="conteudo">
+            <tr>
+                <td colspan="3" align="center">
+                    <h1>
+                        <h:outputText value="Cadastro de participantes do congresso"/>
+                    </h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <h3>
+                                    <h:outputText value="[1] Informações Pessoais"/>
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Nome:"/> 
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.nome}" required="true" maxlength="255"
+                                             requiredMessage="O campo nome é obrigatório.">
+                                </h:inputText>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="CPF:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.CPF}" maxlength="11"
+                                             required="true" requiredMessage="O campo CPF é obrigatório">
+                                    <f:validator binding="#{userBean.CPFValidator}"/>
+                                </h:inputText>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="RG:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.RG}" required="true" maxlength="10"
+                                             requiredMessage="O campo RG é obrigatório"/>
+                            </td>
+                        </tr>
+                    </table>   
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <h3>
+                                    <h:outputText value="[2] Endereço"/>
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Rua:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.rua}" required="true" maxlength="255"
+                                             requiredMessage="O campo Rua é obrigatório"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Número:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.numero}" required="true" maxlength="6"
+                                             requiredMessage="O campo Numero é obrigatório"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Complemento"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.complemento}" maxlength="255"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Cidade:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.cidade}" required="true" maxlength="255"
+                                             requiredMessage="O campo Cidade é obrigatório"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Estado:"/>
+            
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.estado}" />
+                            </td>    
+                        </tr>
+                        <tr>
+                            <td>
+                                 <h:outputText value="CEP:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.CEP}" required="true" maxlength="9"
+                                             requiredMessage="O campo CEP é obrigatório" converter="#{userBean.cepConverter}">
+                                    
+                                </h:inputText>
+                                    
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                 <h3>
+                                    <h:outputText value="[3] Contato"/>
+                                </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Telefone Fixo:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.telFixo}" required="true" maxlength="10"
+                                             requiredMessage="O campo Telefone é obrigatório"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h:outputText value="Telefone Celular:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.telCelular}" maxlength="10"/>
+                            </td>
+                        </tr>                            
+                        <tr>
+                            <td>
+                                <h:outputText value="Email:"/>
+                            </td>
+                            <td>
+                                <h:inputText value="#{userBean.email}" required="true" maxlength="255"
+                                             requiredMessage="O campo email é obrigatório">
+                                </h:inputText>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">
+                    <h:commandButton action="cadastroCursos" value="Efetuar cadastro!" >
+                        <f:param name="nome" value="#{userBean.nome}" />
+                    </h:commandButton>
+                </td>
+            </tr>
+        </table>
+        </h:form>
+    </h:body>
+</html>
+

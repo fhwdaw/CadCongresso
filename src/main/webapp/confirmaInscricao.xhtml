@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro Congresso</title>
+    </h:head>
+    <h:body>
+        
+        <h1>
+            <h:outputText value="Cadastro Congresso"/>
+        </h1>
+        <h:form id="UserEntryForm" >
+            <h3>
+                <h:outputText value="Confirme a sua inscrição"/>
+            </h3>
+            <h:outputText value="Nome: "/>
+            <h:outputText value="#{userBean.nome}"/><br></br>
+            <h:outputText value="CPF: "/>
+            <h:outputText value="#{userBean.CPF}"/><br></br>
+            <h:outputText value="Email: "/>
+            <h:outputText value="#{userBean.email}"/><br></br>
+            <h:outputText value="Preço: "/>
+            <h:outputText value="#{confirmaInscricaoBean.preco}"/><br></br>
+            
+            <h:commandButton action="mostraInscricao" value="OK" />
+        </h:form>
+    </h:body>
+</html>
+
